@@ -1,0 +1,86 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Orphanage Management Dashboard</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Noto+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./styles.css" />
+  <!-- Import map for future modular libs (example placeholder) -->
+  <script type="importmap">
+  {
+    "imports": {
+      "dayjs": "https://cdn.jsdelivr.net/npm/dayjs@1.11.13/+esm"
+    }
+  }
+  </script>
+  <!-- Add Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+</head>
+<body>
+  <div id="app">
+    <aside class="sidebar" aria-label="Sidebar Navigation">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">🏠</div>
+        <div class="brand-text">HomeCare</div>
+      </div>
+      <nav class="nav">
+        <button class="nav-item active" data-route="dashboard" aria-current="page">📊 Dashboard</button>
+        <div class="nav-group-label">Care & Records</div>
+        <button class="nav-item" data-route="admissions">📝 Admissions</button>
+        <button class="nav-item" data-route="children">👧 Children</button>
+        <button class="nav-item" data-route="adoption">👨‍👩‍👧 Adoption</button>
+        <button class="nav-item" data-route="health">⚕️ Health</button>
+        <button class="nav-item" data-route="education">🎓 Education</button>
+        <button class="nav-item" data-route="attendance">🗓️ Attendance</button>
+        <button class="nav-item" data-route="incidents">🚨 Incidents & Safeguarding</button>
+        <div class="nav-group-label">Operations</div>
+        <button class="nav-item" data-route="meals">🍽️ Meals & Nutrition</button>
+        <button class="nav-item" data-route="inventory">📦 Inventory</button>
+        <button class="nav-item" data-route="staff">👩‍💼 Staff</button>
+        <button class="nav-item" data-route="schedule">📅 Scheduling</button>
+        <div class="nav-group-label">Finance & Engagement</div>
+        <button class="nav-item" data-route="donations">💝 Donations</button>
+        <button class="nav-item" data-route="finance">💰 Finance</button>
+        <button class="nav-item" data-route="reports">📈 Reports</button>
+        <div class="nav-group-label">Communication</div>
+        <button class="nav-item" data-route="announcements">📣 Announcements</button>
+        <div class="nav-group-label">Admin</div>
+        <button class="nav-item" data-route="settings">⚙️ Settings</button>
+      </nav>
+      <div class="sidebar-footer">
+        <button id="compactToggle" class="quiet">Toggle Compact</button>
+      </div>
+    </aside>
+    <main class="main">
+      <header class="topbar">
+        <button class="icon-btn" id="sidebarToggle" aria-label="Toggle sidebar">☰</button>
+        <div class="search">
+          <input id="globalSearch" type="search" placeholder="Search children, staff, donations..." aria-label="Global search"/>
+        </div>
+        <div class="topbar-actions">
+          <button class="icon-btn" id="addQuick" title="Quick add">＋</button>
+        </div>
+      </header>
+      <section id="content" class="content" tabindex="-1" aria-live="polite">
+        <!-- dynamic content -->
+      </section>
+    </main>
+  </div>
+
+  <!-- Modal -->
+  <div id="modal" class="modal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal__backdrop" data-modal-close></div>
+    <div class="modal__dialog" role="document">
+      <header class="modal__header">
+        <h2 id="modalTitle" class="modal__title">Modal</h2>
+        <button class="icon-btn" data-modal-close aria-label="Close">✕</button>
+      </header>
+      <div class="modal__body" id="modalBody"></div>
+      <footer class="modal__footer" id="modalFooter"></footer>
+    </div>
+  </div>
+
+  <script type="module" src="./app.js"></script>
+</body>
+</html>
